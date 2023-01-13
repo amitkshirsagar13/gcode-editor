@@ -1,5 +1,6 @@
 import Prism from 'prismjs';
-import 'prismjs/components/prism-gcode';
+// import 'prismjs/components/prism-gcode';
+import './gcode-grammer';
 import TextAreaEditor from '../editor';
 import './gcode.scss';
 
