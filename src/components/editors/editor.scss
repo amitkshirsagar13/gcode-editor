@@ -1,0 +1,50 @@
+.code-editor {
+    display: block;
+    position: relative;
+    font-family: monospace;
+    line-height: 1.5;
+    width: 60%;
+    background-color: black !important;
+    border-radius: 4px;
+    padding: 10px;
+    height: 60vh;
+
+}
+
+.code-editor pre {
+    font-size: 13px;
+    font-family: inherit;
+    line-height: inherit;
+    background-color: green;
+}
+
+.code-editor pre, code {
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    font-size: 13px;
+    font-family: inherit;
+    line-height: inherit;
+    background-color: transparent;
+}
+
+.code-editor textarea {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: transparent;
+    color: transparent;
+    caret-color: white !important;
+    padding: 10px;
+    margin: 0px;
+    font-size: 13px;
+    font-family: inherit;
+    line-height: inherit;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    overflow: hidden;
+}
