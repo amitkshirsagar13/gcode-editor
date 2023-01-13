@@ -18,3 +18,7 @@ npm i --save-dev sass
 npm i
 vite
 ```
+
+### Demo nc-editor
+
+<img src="./docs/nc-editor-demo.gif" width="600">
