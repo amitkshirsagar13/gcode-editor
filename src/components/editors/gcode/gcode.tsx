@@ -4,8 +4,7 @@ import './gcode-grammer';
 import TextAreaEditor from '../editor';
 import './gcode.scss';
 
-const gCode = `
-N10 DEF REAL _camtolerance
+const gCode = `N10 DEF REAL _camtolerance
 N20 DEF REAL _X_HOME, _Y_HOME, _Z_HOME
 N30 ;
 N40 _X_HOME=0 _Y_HOME=225.425 _Z_HOME=606.425
