@@ -6,7 +6,6 @@ import Prism from "prismjs";
 
 export default function TextAreaEditor( {seedCode, language}: any) {
   const [code, setCode] = React.useState(seedCode);
-  const [codeRender, setCodeRender] = React.useState(seedCode);
 
   useEffect(() => {
     Prism.highlightAll();
@@ -14,33 +13,32 @@ export default function TextAreaEditor( {seedCode, language}: any) {
 
   useEffect(() => {
     Prism.highlightAll();
-  }, [codeRender]);
+  }, [code]);
 
   function syncScroll() {
     /* Scroll result to scroll coords of event - sync with textarea */
-    let textareaElement: Element | null = document.querySelector("#textareaId");
-    let preElement: Element | null = document.querySelector("#pre");
+    let textareaElement: any = document.querySelector("#editing");
+    let preElement: any = document.querySelector("#highlighting");
     // Get and set x and y
-    if(preElement && textareaElement) {
-      preElement.scrollTop = textareaElement.scrollTop;
-      preElement.scrollLeft = textareaElement.scrollLeft;
-    }
+    preElement.scrollTop = textareaElement.scrollTop;
+    preElement.scrollLeft = textareaElement.scrollLeft;
   }
   function setTextValue(e: any) {
-    const text = e.target.value;
-    console.log('TEXT',text.split("\n").length);
+    let text = e.target.value;
+    text = text.replace(/\n /, '\n');
+    text += text[text.length-1] == "\n" ? " ": "";
     setCode(text);
-    setCodeRender(text);
     syncScroll();
-    console.log('RENDER', codeRender.split("\n").length);
   }
   
   return (
     <div className="code-editor">
-      <pre id="pre" className="pre-code">
-        <code id="code" className={`pre-code language-${language}`}>{code}</code>
+      <textarea id="editing" onInput={(e) => setTextValue(e)} value={code} onScroll={()=>syncScroll()}></textarea>
+      <pre id="highlighting" className="pre-code">
+        <code id="code" className={`pre-code language-${language}`}>
+          {code}
+        </code>
       </pre>
-      <textarea id="textareaId" onChange={(e) => setTextValue(e)} value={code} onScroll={()=>syncScroll()}></textarea>
     </div>
   );
 }
